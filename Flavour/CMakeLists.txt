@@ -12,12 +12,16 @@ else()
     message("\t ${PROJECT_NAME}: Unfortunately I can't support your system. Windows and Unix Support Only")
 endif()
 
-add_executable("${PROJECT_NAME}")
-install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
-
-target_sources("${PROJECT_NAME}" PRIVATE
+#add_library("${PROJECT_NAME}" )
+add_library("${PROJECT_NAME}" SHARED
     "Core/Application.cpp"
     "Core/Application.h"
+    "Core/EntryPoint.h"
+    "Core/PlatformExport.h"
     "Flavour.h"
 )
+add_compile_definitions("FLAVOUR_WIN_EXPORT")
+install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
+
+
 

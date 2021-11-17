@@ -12,7 +12,6 @@ namespace Flavour{
     {
             while (true)
             {
-                std::cout << "aa";
             }
     }
 }

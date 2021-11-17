@@ -1,10 +1,14 @@
 #include <stdio.h>
-//#include "Flavour.h"
-int main(int argc, char **argv)
+#include <Flavour.h>
+class Sandbox : public Flavour::Application
 {
-    
-	printf("hello world\n");
-//Flavour::Application* test =     new Flavour::Application();
-    //test->Run();
-    //delete test;
+public:
+    Sandbox() {}
+    ~Sandbox() {}
+};
+
+Flavour::Application* Flavour::CreateApplication() 
+{
+    return new Sandbox;
 }
+
