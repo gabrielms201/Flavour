@@ -23,7 +23,7 @@ install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 
 
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy-if-different
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different 
     "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/Flavour.dll" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
 
 target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
