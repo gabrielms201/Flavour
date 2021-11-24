@@ -1,4 +1,4 @@
-#ifdef _WIN32 || _WIN64
+#if defined _WIN32 || _WIN64
 # ifdef FLAVOUR_WIN_EXPORT
 #   define EXPORTED __declspec(dllexport)
 # else

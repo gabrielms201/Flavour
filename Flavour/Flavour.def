@@ -1,0 +1,5 @@
+LIBRARY "Flavour"
+	EXPORTS
+		?0Application	@1
+		?1Application	@2
+		Run				@3

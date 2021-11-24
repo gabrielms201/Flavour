@@ -1,14 +1,13 @@
-#include <stdio.h>
 #include <Flavour.h>
 class Sandbox : public Flavour::Application
 {
 public:
-    Sandbox() {}
-    ~Sandbox() {}
+	Sandbox() {}
+	~Sandbox() {}
 };
 
-Flavour::Application* Flavour::CreateApplication() 
+Flavour::Application* Flavour::CreateApplication()
 {
-    return new Sandbox;
+	return new Sandbox;
 }
 

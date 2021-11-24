@@ -379,6 +379,9 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+# CLion:
+.idea/*
+cmake-build-debug/*
 
 # Custom Files:
 build/*

@@ -8,7 +8,7 @@ message("Building: ${PROJECT_NAME}")
 if(WIN32)
     message("\t ${PROJECT_NAME}: I do provide Windows support")
 elseif(UNIX)
-    message("\t ${PROJECT_NAME}: I do provide Unix Suport")
+    message("\t ${PROJECT_NAME}: I do provide Unix support")
 else()
     message("\t ${PROJECT_NAME}: Unfortunately I can't support your system. Windows and Unix Support Only")
 endif()
@@ -21,9 +21,8 @@ target_sources("${PROJECT_NAME}" PRIVATE
 )
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 
-
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different 
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/Flavour.dll" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
 
 target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")

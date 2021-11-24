@@ -7,21 +7,25 @@ message("Building: ${PROJECT_NAME}")
 if(WIN32)
     message("\t ${PROJECT_NAME}: I do provide Windows support")
 elseif(UNIX)
-    message("\t ${PROJECT_NAME}: I do provide Unix Suport")
+    message("\t ${PROJECT_NAME}: I do provide Unix support")
 else()
     message("\t ${PROJECT_NAME}: Unfortunately I can't support your system. Windows and Unix Support Only")
 endif()
 
-#add_library("${PROJECT_NAME}" )
-add_library("${PROJECT_NAME}" SHARED
+# Source Files
+add_library("${PROJECT_NAME}" SHARED "Flavour.def"
     "Core/Application.cpp"
     "Core/Application.h"
     "Core/EntryPoint.h"
     "Core/PlatformExport.h"
     "Flavour.h"
 )
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES PREFIX "")
 add_compile_definitions("FLAVOUR_WIN_EXPORT")
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
+
 
 
 
