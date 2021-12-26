@@ -1,14 +1,14 @@
 #pragma once
 #include "PlatformExport.h"
-namespace Flavour
-{
-	class Application
-	{
-	public:
-		Application();
-		~Application();
-		void Run();
-	};
+namespace Flavour {
+    class Application {
+    public:
+        Application();
 
-	Application* CreateApplication();
+        ~Application();
+
+        void Run();
+    };
+
+    Application *CreateApplication();
 }
