@@ -23,9 +23,17 @@ install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES PREFIX "")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 
+# Add pre build instruction to copy dynamic kibrary into the project folder
+if(WIN32)
+    set(FLAVOUR_LIB_DYNAMIC_TYPE "Flavour.dll")
+elseif(UNIX)
+    set(FLAVOUR_LIB_DYNAMIC_TYPE "Flavour.so")
+endif()
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/Flavour.dll" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
+    "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/${FLAVOUR_LIB_DYNAMIC_TYPE}" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
+
+
 target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
 target_link_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour")
 target_link_libraries("${PROJECT_NAME}" PRIVATE "Flavour")
