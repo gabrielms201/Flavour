@@ -23,7 +23,7 @@ install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES PREFIX "")
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
 
-# Add pre build instruction to copy dynamic kibrary into the project folder
+# Add pre build instruction to copy dynamic library into the project folder
 if(WIN32)
     set(FLAVOUR_LIB_DYNAMIC_TYPE "Flavour.dll")
 elseif(UNIX)
