@@ -1,0 +1,3 @@
+[submodule "Flavour/dependencies/spdlog"]
+	path = Flavour/dependencies/spdlog
+	url = https://github.com/gabime/spdlog.git
