@@ -29,8 +29,16 @@ add_library("${PROJECT_NAME}" SHARED "${WIN_EXPORT_SYMBOLS}"
     "Core/Application.h"
     "Core/EntryPoint.h"
     "Core/PlatformExport.h"
+    "Core/Log.cpp"
+    "Core/Log.h"
     "Flavour.h"
 )
+# Include Directories
+include_directories(
+        "Dependencies/spdlog/include/"
+
+)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)

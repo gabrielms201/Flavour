@@ -2,4 +2,4 @@
 #include "Core/Application.h"
 #include "Core/EntryPoint.h"
 #include "Core/PlatformExport.h"
-
+#include "Core/Log.h"

@@ -34,7 +34,9 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
     "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/${FLAVOUR_LIB_DYNAMIC_TYPE}" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
 
 
+
 target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
+target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/Dependencies/spdlog/include")
 target_link_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour")
 target_link_libraries("${PROJECT_NAME}" PRIVATE "Flavour")
 

@@ -1,7 +1,4 @@
 #include "Application.h"
-#include <iostream>
-#include <chrono>
-#include <thread>
 
 namespace Flavour 
 {
@@ -15,7 +12,7 @@ namespace Flavour
     
 	void Application::Run()
 	{
-        std::cout << "Flavour Engine Speaking" <<  std::endl << "Hello World!" << std::endl  << std::endl;
+		FLAVOUR_CORE_INFO("Flavour Engine Speaking! Hello World! ");
 		while (true)
 		{
             for (int i = 0; i <= 10; i++)
