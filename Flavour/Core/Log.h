@@ -28,11 +28,11 @@ namespace Flavour
 #define FLAVOUR_CORE_TRACE(...)  ::Flavour::Log::GetFlavourLogger()->trace(__VA_ARGS__)
 #define FLAVOUR_CORE_WARN(...)   ::Flavour::Log::GetFlavourLogger()->warn(__VA_ARGS__)
 #define FLAVOUR_CORE_ERROR(...)  ::Flavour::Log::GetFlavourLogger()->error(__VA_ARGS__)
-#define FLAVOUR_CORE_FATAL(...)  ::Flavour::Log::GetFlavourLogger()->fatal(__VA_ARGS__)
+#define FLAVOUR_CORE_FATAL(...)  ::Flavour::Log::GetFlavourLogger()->critical(__VA_ARGS__)
 
 // Application Log Macros
 #define FLAVOUR_INFO(...)        ::Flavour::Log::GetClientLogger()->info(__VA_ARGS__)
 #define FLAVOUR_TRACE(...)       ::Flavour::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define FLAVOUR_WARN(...)        ::Flavour::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define FLAVOUR_ERROR(...)       ::Flavour::Log::GetClientLogger()->error(__VA_ARGS__)
-#define FLAVOUR_FATAL(...)       ::Flavour::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define FLAVOUR_FATAL(...)       ::Flavour::Log::GetClientLogger()->critical(__VA_ARGS__)

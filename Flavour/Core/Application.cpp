@@ -17,7 +17,8 @@ namespace Flavour
 		{
             for (int i = 0; i <= 10; i++)
             {
-                std::cout << "Up and running  - " <<   i  << std::endl;
+                //std::cout << "Up and running  - " <<   i  << std::endl;
+				FLAVOUR_CORE_TRACE("Up and Running - {0}", i); 
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5000));

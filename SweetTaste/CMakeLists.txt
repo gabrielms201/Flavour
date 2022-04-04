@@ -30,7 +30,7 @@ elseif(UNIX)
     set(FLAVOUR_LIB_DYNAMIC_TYPE "Flavour.so")
 endif()
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    COMMAND ${CMAKE_COMMAND} -E copy
     "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/${FLAVOUR_LIB_DYNAMIC_TYPE}" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
 
 
