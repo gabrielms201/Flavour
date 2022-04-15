@@ -22,7 +22,6 @@ namespace Flavour
 		_clientLogger = spdlog::stderr_color_mt("APPLICATION");
 		_clientLogger->set_level(spdlog::level::trace);
 
-
 	}
 	Log::Log()
 	{

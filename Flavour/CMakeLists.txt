@@ -23,26 +23,59 @@ else()
     set(WIN_EXPORT_SYMBOLS "")
 endif()
 
-# Source Files
-add_library("${PROJECT_NAME}" SHARED "${WIN_EXPORT_SYMBOLS}"
+# Organizing the folders / source files
+
+# Event System Source Folder
+set(EVENT_SRC
+    "Core/Events/Event.h"
+    "Core/Events/KeyEvent.h"
+    "Core/Events/ApplicationEvent.h"
+    "Core/Events/MouseEvent.h"
+
+    )
+# Core Source Folder
+set(CORE_SRC
     "Core/Application.cpp"
+    "Core/Log.cpp"
     "Core/Application.h"
     "Core/EntryPoint.h"
     "Core/PlatformExport.h"
-    "Core/Log.cpp"
     "Core/Log.h"
-    "Flavour.h"
+
+)
+# All Source Folders
+set(ALL_SRC
+    "${EVENT_SRC}"
+    "${CORE_SRC}"
+
 )
 # Include Directories
 include_directories(
-        "Dependencies/spdlog/include/"
+    "Dependencies/spdlog/include/"
 
 )
 
+# GROUP_SRC Macro
+GROUP_SRC(ALL_SRC)
+
+# Pointing all source folders
+add_library(${PROJECT_NAME} SHARED ${WIN_EXPORT_SYMBOLS}
+    "Flavour.h"
+    ${CORE_SRC}
+    ${CORE_HEADER}
+    ${EVENT_SRC}
+)
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 
-
+#[[ Some unused commands:
+    set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+    # Other way to organize the solution:
+    source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES 
+        ${CORE_SRC}
+        ${EVENT_SRC}
+        )
+]]
 
 

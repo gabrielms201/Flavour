@@ -6,8 +6,10 @@
 #include <thread>
 
 
-namespace Flavour {
-    class Application {
+namespace Flavour
+{
+    class EXPORTED Application
+	{
     public:
         Application();
 
