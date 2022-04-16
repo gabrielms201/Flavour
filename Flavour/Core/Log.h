@@ -1,14 +1,14 @@
 #pragma once
 #include <memory>
 
-#include "PlatformExport.h"
+#include "FlavourUtils.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 
 namespace Flavour 
 {
-	class EXPORTED Log 
+	class API_EXPORTED Log 
 	{
 	public:
 		static void Init(bool verbose = false);

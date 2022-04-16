@@ -1,14 +1,18 @@
 #pragma once
-#include "PlatformExport.h"
+#include "FlavourUtils.h"
 #include "Log.h"
+
+#include "Events/KeyEvent.h"
+#include "Events/MouseEvent.h"
+#include "Events/ApplicationEvent.h"
+
 #include <iostream>
 #include <chrono>
 #include <thread>
 
-
 namespace Flavour
 {
-    class EXPORTED Application
+    class API_EXPORTED Application
 	{
     public:
         Application();

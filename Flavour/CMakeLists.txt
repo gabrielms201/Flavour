@@ -39,7 +39,7 @@ set(CORE_SRC
     "Core/Log.cpp"
     "Core/Application.h"
     "Core/EntryPoint.h"
-    "Core/PlatformExport.h"
+    "Core/FlavourUtils.h"
     "Core/Log.h"
 
 )
@@ -66,7 +66,7 @@ add_library(${PROJECT_NAME} SHARED ${WIN_EXPORT_SYMBOLS}
     ${EVENT_SRC}
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR})
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 
 #[[ Some unused commands:
