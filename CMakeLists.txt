@@ -26,7 +26,6 @@ MACRO(GROUP_SRC SRCS)
     string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}" "" GROUP "${PARENT_DIR}")
     # Make sure we are using windows slashes
     string(REPLACE "/" "\\" GROUP "${GROUP}")
-    message("${GROUP}")
     # Group into "Source Files" and "Header Files"
     if ("${FILE}" MATCHES ".*\\.cpp")
       set(GROUP "Source Files${GROUP}")

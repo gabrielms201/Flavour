@@ -10,6 +10,8 @@ set(CMAKE_SHARED_MODULE_PREFIX "")
 if(WIN32)
     message("\t ${PROJECT_NAME} speaking: I do provide Windows support")
     add_compile_definitions("FLAVOUR_WIN_EXPORT")
+    add_compile_definitions("FLAVOUR_WINDOWS")
+
 elseif(UNIX)
     message("\t ${PROJECT_NAME} speaking: I do provide Unix support")
 else()

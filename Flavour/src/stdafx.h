@@ -18,6 +18,6 @@
 
 
 
-#if defined _WIN32 || _WIN64
+#if defined _WIN32 || _WIN64 || FLAVOUR_WINDOWS
 	#include <Windows.h>
 #endif
