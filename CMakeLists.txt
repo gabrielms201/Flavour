@@ -17,6 +17,8 @@ endif()
 MACRO(GROUP_SRC SRCS)
   foreach(FILE IN LISTS ${SRCS}) 
     #convert source file to absolute
+    string(REPLACE "src/" "" FILE ${FILE})
+    #message(${FILE})
     get_filename_component(ABSOLUTE_PATH "${FILE}" ABSOLUTE)
     # Get the directory of the absolute source file
     get_filename_component(PARENT_DIR "${ABSOLUTE_PATH}" DIRECTORY)
@@ -24,13 +26,14 @@ MACRO(GROUP_SRC SRCS)
     string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}" "" GROUP "${PARENT_DIR}")
     # Make sure we are using windows slashes
     string(REPLACE "/" "\\" GROUP "${GROUP}")
+    message("${GROUP}")
     # Group into "Source Files" and "Header Files"
     if ("${FILE}" MATCHES ".*\\.cpp")
       set(GROUP "Source Files${GROUP}")
     elseif("${FILE}" MATCHES ".*\\.h")
       set(GROUP "Header Files${GROUP}")
     endif()
-    source_group("${GROUP}" FILES "${FILE}")
+    source_group("${GROUP}" FILES "src/${FILE}")
   endforeach()
 ENDMACRO(GROUP_SRC)
 

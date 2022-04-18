@@ -18,7 +18,7 @@ endif()
 
 # MSVC .def file:
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    set(WIN_EXPORT_SYMBOLS "Flavour.def")
+    set(WIN_EXPORT_SYMBOLS "src/Flavour.def")
 else()
     set(WIN_EXPORT_SYMBOLS "")
 endif()
@@ -27,26 +27,26 @@ endif()
 
 # Event System Source Folder
 set(MAIN_SRC
-    "Flavour.h"
-    "stdafx.h"
-    "stdafx.cpp"
+    "src/Flavour.h"
+    "src/stdafx.h"
+    "src/stdafx.cpp"
 )
 
 set(EVENT_SRC
-    "Core/Events/Event.h"
-    "Core/Events/KeyEvent.h"
-    "Core/Events/ApplicationEvent.h"
-    "Core/Events/MouseEvent.h"
+    "src/Core/Events/Event.h"
+    "src/Core/Events/KeyEvent.h"
+    "src/Core/Events/ApplicationEvent.h"
+    "src/Core/Events/MouseEvent.h"
 
     )
 # Core Source Folder
 set(CORE_SRC
-    "Core/Application.cpp"
-    "Core/Log.cpp"
-    "Core/Application.h"
-    "Core/EntryPoint.h"
-    "Core/FlavourUtils.h"
-    "Core/Log.h"
+    "src/Core/Application.cpp"
+    "src/Core/Log.cpp"
+    "src/Core/Application.h"
+    "src/Core/EntryPoint.h"
+    "src/Core/FlavourUtils.h"
+    "src/Core/Log.h"
 
 )
 # All Source Folders
@@ -58,7 +58,7 @@ set(ALL_SRC
 )
 # Include Directories
 include_directories(
-    "Dependencies/spdlog/include/"
+    "dependencies/spdlog/include/"
 
 )
 
@@ -70,12 +70,12 @@ add_library(${PROJECT_NAME} SHARED ${WIN_EXPORT_SYMBOLS}
     ${ALL_SRC}
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/Flavour)
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/Flavour/src)
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
 
 target_precompile_headers(${PROJECT_NAME} PRIVATE
-    "stdafx.h"
-    "stdafx.cpp")
+    "src/stdafx.h"
+    "src/stdafx.cpp")
 
 #[[ Some unused commands:
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
