@@ -1,8 +1,6 @@
 #pragma once
 
-#include <functional>
-#include <string>
-#include <iostream>
+#include "stdafx.h"
 
 namespace Flavour
 {

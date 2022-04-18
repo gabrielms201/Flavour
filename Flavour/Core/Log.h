@@ -1,5 +1,5 @@
 #pragma once
-#include <memory>
+#include "stdafx.h"
 
 #include "FlavourUtils.h"
 #include "spdlog/spdlog.h"

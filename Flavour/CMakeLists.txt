@@ -8,12 +8,12 @@ set(CMAKE_SHARED_MODULE_PREFIX "")
 
 # Platform Specifications
 if(WIN32)
-    message("\t ${PROJECT_NAME}: I do provide Windows support")
+    message("\t ${PROJECT_NAME} speaking: I do provide Windows support")
     add_compile_definitions("FLAVOUR_WIN_EXPORT")
 elseif(UNIX)
-    message("\t ${PROJECT_NAME}: I do provide Unix support")
+    message("\t ${PROJECT_NAME} speaking: I do provide Unix support")
 else()
-    message("\t ${PROJECT_NAME}: Unfortunately I can't support your system. Windows and Unix Support Only")
+    message("\t ${PROJECT_NAME} speaking: Unfortunately I can't support your system. Windows and Unix Support Only")
 endif()
 
 # MSVC .def file:
@@ -26,6 +26,12 @@ endif()
 # Organizing the folders / source files
 
 # Event System Source Folder
+set(MAIN_SRC
+    "Flavour.h"
+    "stdafx.h"
+    "stdafx.cpp"
+)
+
 set(EVENT_SRC
     "Core/Events/Event.h"
     "Core/Events/KeyEvent.h"
@@ -45,8 +51,9 @@ set(CORE_SRC
 )
 # All Source Folders
 set(ALL_SRC
-    "${EVENT_SRC}"
-    "${CORE_SRC}"
+    ${MAIN_SRC}
+    ${CORE_SRC}
+    ${EVENT_SRC}
 
 )
 # Include Directories
@@ -60,14 +67,15 @@ GROUP_SRC(ALL_SRC)
 
 # Pointing all source folders
 add_library(${PROJECT_NAME} SHARED ${WIN_EXPORT_SYMBOLS}
-    "Flavour.h"
-    ${CORE_SRC}
-    ${CORE_HEADER}
-    ${EVENT_SRC}
+    ${ALL_SRC}
 )
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
-include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/Flavour)
 install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
+
+target_precompile_headers(${PROJECT_NAME} PRIVATE
+    "stdafx.h"
+    "stdafx.cpp")
 
 #[[ Some unused commands:
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)

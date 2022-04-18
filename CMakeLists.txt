@@ -5,11 +5,11 @@ message("Building: ${PROJECT_NAME} Solution")
 
 # Platform Specifications
 if(WIN32)
-    message("\t ${PROJECT_NAME}: I do provide Windows support")
+    message("\t ${PROJECT_NAME} solution speaking: I do provide Windows support")
 elseif(UNIX)
-    message("\t ${PROJECT_NAME}: I do provide Unix support")
+    message("\t ${PROJECT_NAME} solution speaking: I do provide Unix support")
 else()
-    message("\t ${PROJECT_NAME}: Unfortunately I can't support your system. Windows and Unix Support Only")
+    message("\t ${PROJECT_NAME} solution speaking: Unfortunately I can't support your system. Windows and Unix Support Only")
 endif()
 
 # Macros

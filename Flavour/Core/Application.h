@@ -6,9 +6,7 @@
 #include "Events/MouseEvent.h"
 #include "Events/ApplicationEvent.h"
 
-#include <iostream>
-#include <chrono>
-#include <thread>
+#include "stdafx.h"
 
 namespace Flavour
 {

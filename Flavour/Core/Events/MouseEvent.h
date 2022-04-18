@@ -1,7 +1,6 @@
 #pragma once
-
 #include "Event.h"
-#include <sstream>
+#include "stdafx.h"
 
 /*
 MOUSE EVENTS:
