@@ -13,11 +13,11 @@ else()
 endif()
 
 # Build Config
-add_executable("${PROJECT_NAME}")
-target_sources("${PROJECT_NAME}" PRIVATE
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE
     "main.cpp"
 )
-install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 # Dependencies Config
 SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES PREFIX "")
@@ -35,9 +35,9 @@ add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
 
 
 
-target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
-target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/Dependencies/spdlog/include")
-target_link_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour")
-target_link_libraries("${PROJECT_NAME}" PRIVATE "Flavour")
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${CMAKE_BINARY_DIR}/../Flavour/src"
+    "${CMAKE_BINARY_DIR}/../Flavour/Dependencies/spdlog/include")
 
-
+target_link_directories(${PROJECT_NAME} PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
+target_link_libraries(${PROJECT_NAME} PRIVATE Flavour)

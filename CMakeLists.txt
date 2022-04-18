@@ -1,6 +1,6 @@
 # Project Specs
 cmake_minimum_required(VERSION 3.17.0)
-project("Flavour")
+project("Flavour Solution")
 message("Building: ${PROJECT_NAME} Solution")
 
 # Platform Specifications
