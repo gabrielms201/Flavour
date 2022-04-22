@@ -5,19 +5,19 @@ message("Building: ${PROJECT_NAME}")
 
 # Platform Specifications
 if(WIN32)
-    message("\t ${PROJECT_NAME}: I do provide Windows support")
+    message("\t ${PROJECT_NAME} speaking: I do provide Windows support")
 elseif(UNIX)
-    message("\t ${PROJECT_NAME}: I do provide Unix support")
+    message("\t ${PROJECT_NAME} speaking: I do provide Unix support")
 else()
-    message("\t ${PROJECT_NAME}: Unfortunately I can't support your system. Windows and Unix Support Only")
+    message("\t ${PROJECT_NAME} speaking: Unfortunately I can't support your system. Windows and Unix Support Only")
 endif()
 
 # Build Config
-add_executable("${PROJECT_NAME}")
-target_sources("${PROJECT_NAME}" PRIVATE
+add_executable(${PROJECT_NAME})
+target_sources(${PROJECT_NAME} PRIVATE
     "main.cpp"
 )
-install(TARGETS "${PROJECT_NAME}" DESTINATION bin)
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 # Dependencies Config
 SET_TARGET_PROPERTIES(${PROJECT_NAME} PROPERTIES PREFIX "")
@@ -30,12 +30,14 @@ elseif(UNIX)
     set(FLAVOUR_LIB_DYNAMIC_TYPE "Flavour.so")
 endif()
 add_custom_command(TARGET ${PROJECT_NAME} PRE_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    COMMAND ${CMAKE_COMMAND} -E copy
     "${CMAKE_BINARY_DIR}/Flavour/${CMAKE_CFG_INTDIR}/${FLAVOUR_LIB_DYNAMIC_TYPE}" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/${CMAKE_CFG_INTDIR}")
 
 
-target_include_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
-target_link_directories("${PROJECT_NAME}" PRIVATE "${CMAKE_BINARY_DIR}/../Flavour")
-target_link_libraries("${PROJECT_NAME}" PRIVATE "Flavour")
 
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${CMAKE_BINARY_DIR}/../Flavour/src"
+    "${CMAKE_BINARY_DIR}/../Flavour/Dependencies/spdlog/include")
 
+target_link_directories(${PROJECT_NAME} PRIVATE "${CMAKE_BINARY_DIR}/../Flavour/")
+target_link_libraries(${PROJECT_NAME} PRIVATE Flavour)

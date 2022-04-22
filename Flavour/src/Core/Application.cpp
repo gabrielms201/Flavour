@@ -1,7 +1,5 @@
 #include "Application.h"
-#include <iostream>
-#include <chrono>
-#include <thread>
+
 
 namespace Flavour 
 {
@@ -15,12 +13,13 @@ namespace Flavour
     
 	void Application::Run()
 	{
-        std::cout << "Flavour Engine Speaking" <<  std::endl << "Hello World!" << std::endl  << std::endl;
+		FLAVOUR_CORE_INFO("Flavour Engine Speaking! Hello World! ");
 		while (true)
 		{
             for (int i = 0; i <= 10; i++)
             {
-                std::cout << "Up and running  - " <<   i  << std::endl;
+                //std::cout << "Up and running  - " <<   i  << std::endl;
+				FLAVOUR_CORE_TRACE("Up and Running - {0}", i); 
                 std::this_thread::sleep_for(std::chrono::milliseconds(1000));
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(5000));

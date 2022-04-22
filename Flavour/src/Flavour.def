@@ -2,4 +2,8 @@ LIBRARY "Flavour"
 	EXPORTS
 		?0Application
 		?1Application
+		?0Log
+		?1Log
+		?4Log
+		Init
 		Run

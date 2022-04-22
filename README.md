@@ -52,3 +52,13 @@ Building:
 Bootstrap\bootstrap-windows-vsstudio
 ```
 
+---
+
+## NOTES: 
+
+## Long Term features possibilities:
+
+~> **Scripting Language**: Lua, Python or **Go**
+~> **Unit Tests Framework**: Microsoft Unit Testing Framework, **GoogleTest**
+~> **API Support:** **Vulcan**, **OpenGL**, DirectX
+
